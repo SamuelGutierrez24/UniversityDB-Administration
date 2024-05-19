@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Lugar del Evento - Universidad del Sur Occidente</title>
+    <link rel="stylesheet" href="/static/css/register_event_pageA.css">
+</head>
+<body>
+    <header>
+        <h1>Universidad del Sur Occidente</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Eventos</a></li>
+                <li><a href="#">Facultades</a></li>
+                <li><a href="#">Programas</a></li>
+                <li><a href="#">Sedes</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Registro de Lugar del Evento</h2>
+        <form action="/guardar_lugar_evento" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Registrar">
+        </form>
+    </main>
+</body>
+</html>
