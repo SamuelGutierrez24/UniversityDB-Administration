@@ -27,6 +27,8 @@ urlpatterns = [
     path('registerEvent1/',register_events.register1,name='rEvents_a'),
     path('registerEvent2/',register_events.register2,name='rEvents_b'),
     path('registerUser/',register_person.register1,name='rUser'),
+    path('registerUser2/',register_person.register2 ,name='rUser_2'),
+
 
 
 

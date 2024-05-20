@@ -8,21 +8,20 @@ def register1(request):
         if form.is_valid():
             request.session['r_user_1'] = form.cleaned_data
             print(request.POST)
-            
-    
+            return redirect('rUser_2')
     else:
         form = UsuarioForm(request.POST)
         return render(request,'register_user.html',{'form': form})
     
 def register2(request):
     if request.method == 'POST':
-        form = EventPlaceForm(request.POST)
+        form = CityUserForm(request.POST)
         if form.is_valid():
-            request.session['r_events_2'] = form.cleaned_data
+            request.session['r_user_2'] = form.cleaned_data
             print(request.POST)
     else:
-        form = EventPlaceForm(request.POST)
-        return render(request,'register_event_pagB.html',{'form': form})
+        form = CityUserForm(request.POST)
+        return render(request,'register_user2.html',{'form': form})
     
 
 

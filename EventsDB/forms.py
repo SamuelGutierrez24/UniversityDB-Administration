@@ -35,3 +35,8 @@ class UsuarioForm(forms.Form):
     ]
     tipo_relacion = forms.ChoiceField(label='Tipo de Relación', choices=TIPO_RELACION_CHOICES)
     email = forms.EmailField(label='Email')
+
+class CityUserForm(forms.Form):
+    ciudad = forms.CharField(label='Ciudad', max_length=100)
+    departamento = forms.CharField(label='Departamento', max_length=100)
+    pais = forms.CharField(label='País', max_length=100)

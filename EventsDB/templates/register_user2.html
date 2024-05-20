@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuario - Universidad del Sur Occidente</title>
+    <title>Registro de Persona - Universidad del Sur Occidente</title>
     <link rel="stylesheet" href="/static/css/register_user.css">
 </head>
 <body>
@@ -21,13 +21,12 @@
         </nav>
     </header>
     <main>
-        <h2>Registro de Usuario</h2>
+        <h2>Registro de Ciudad</h2>
         <form action="" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Siguiente">
+            <input type="submit" value="Registrar">
         </form>
     </main>
-   
 </body>
 </html>
