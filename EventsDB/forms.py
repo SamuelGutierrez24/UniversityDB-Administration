@@ -20,3 +20,18 @@ class EventPlaceForm(forms.Form):
     direccion = forms.CharField(label='Dirección', max_length=200)
     ciudad = forms.CharField(label='Ciudad', max_length=100)
 
+class UsuarioForm(forms.Form):
+    identificador = forms.CharField(label='Identificador', max_length=100)
+    nombre_usuario = forms.CharField(label='Nombre de Usuario', max_length=100)
+    nombre_completo = forms.CharField(label='Nombre Completo', max_length=200)
+    TIPO_RELACION_CHOICES = [
+        ('Profesor', 'Profesor'),
+        ('Estudiante', 'Estudiante'),
+        ('Graduado', 'Graduado'),
+        ('Empresario', 'Empresario'),
+        ('Administrativo', 'Administrativo'),
+        ('Directivo', 'Directivo'),
+        # Agrega más opciones según sea necesario
+    ]
+    tipo_relacion = forms.ChoiceField(label='Tipo de Relación', choices=TIPO_RELACION_CHOICES)
+    email = forms.EmailField(label='Email')
