@@ -19,6 +19,7 @@ from django.urls import path
 from EventsDB.views import menu;
 from EventsDB.views import register_events
 from EventsDB.views import register_person
+from EventsDB.views import filter_event
 
 
 urlpatterns = [
@@ -28,6 +29,7 @@ urlpatterns = [
     path('registerEvent2/',register_events.register2,name='rEvents_b'),
     path('registerUser/',register_person.register1,name='rUser'),
     path('registerUser2/',register_person.register2 ,name='rUser_2'),
+    path('filterEvents/',filter_event.filter_Event,name='fEvent'),
 
 
 
