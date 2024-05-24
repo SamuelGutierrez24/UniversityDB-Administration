@@ -23,7 +23,7 @@ from EventsDB.views import register_person
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',menu.menu),
+    path('',menu.menu, name='menu'),
     path('registerEvent1/',register_events.register1,name='rEvents_a'),
     path('registerEvent2/',register_events.register2,name='rEvents_b'),
     path('registerUser/',register_person.register1,name='rUser'),

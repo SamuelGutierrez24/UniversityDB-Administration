@@ -11,12 +11,11 @@
         <h1>Universidad del Sur Occidente</h1>
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Eventos</a></li>
-                <li><a href="#">Facultades</a></li>
-                <li><a href="#">Programas</a></li>
-                <li><a href="#">Sedes</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="{% url 'menu' %}">Inicio</a></li>
+                <li><a href="{% url 'rEvents_a' %}">Registrar Evento</a></li>
+                <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
+                <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
+                <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
             </ul>
         </nav>
     </header>

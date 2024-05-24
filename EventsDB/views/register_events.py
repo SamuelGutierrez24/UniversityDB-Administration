@@ -16,6 +16,9 @@ def register1(request):
             }
             print(request.POST)
             return redirect('rEvents_b')
+        else:
+            # Form is not valid, re-render the form with validation errors
+            return render(request, 'register_event_pageA.html', {'form': form})
     
     else:
         form = EventForm(request.POST)
