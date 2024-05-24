@@ -21,7 +21,7 @@
     </header>
     <main>
         <h2>Registro de Lugar del Evento</h2>
-        <form action="/guardar_lugar_evento" method="POST">
+        <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Registrar">

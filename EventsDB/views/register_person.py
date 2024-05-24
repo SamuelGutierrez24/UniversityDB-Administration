@@ -17,7 +17,9 @@ def register2(request):
     if request.method == 'POST':
         form = CityUserForm(request.POST)
         if form.is_valid():
-            request.session['r_user_2'] = form.cleaned_data
+            r_user_1 = request.session.get('r_user_1', {})
+            r_user_2 = form.cleaned_data
+
             print(request.POST)
     else:
         form = CityUserForm(request.POST)
