@@ -20,6 +20,7 @@ from EventsDB.views import menu;
 from EventsDB.views import register_events
 from EventsDB.views import register_person
 from EventsDB.views import filter_event
+from EventsDB.views import persons
 
 
 urlpatterns = [
@@ -30,9 +31,7 @@ urlpatterns = [
     path('registerUser/',register_person.register1,name='rUser'),
     path('registerUser2/',register_person.register2 ,name='rUser_2'),
     path('filterEvents/',filter_event.filter_Event,name='fEvent'),
-
-
-
-
+    path('persons/',persons.listP,name='listP'),
+    path('persons/addEvent',persons.add_to_event,name='add_to_event'),
 
 ]

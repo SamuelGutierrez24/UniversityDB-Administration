@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Agregar Persona a Evento</title>
+<link rel="stylesheet" href="/static/css/add_to_event.css">
+</head>
+<body>
+<header>
+    <h1>Universidad del Sur Occidente</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'menu' %}">Inicio</a></li>
+            <li><a href="{% url 'rEvents_a' %}">Registrar Evento</a></li>
+            <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
+            <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
+            <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
+            <li><a href="{% url 'fEvent' %}">Filtrar Eventos</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="main-container">
+    <div class="info-container">
+        <h2>Información de la Persona</h2>
+        <ul>
+            <li>Nombre: Juan Pérez</li>
+            <li>Apellido: Pérez</li>
+            <li>Identificación: 12345678</li>
+            <li>Correo: juan.perez@example.com</li>
+            <li>Tipo de Contratación: Temporal</li>
+            <li>Tipo de Empleado: Profesor</li>
+            <li>Código de Facultad: FAC01</li>
+            <li>Código de Sede: SED01</li>
+        </ul>
+    </div>
+    <div class="event-container">
+        <h2>Eventos Disponibles</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre del Evento</th>
+                    <th>Facultad Organizadora</th>
+                    <th>Agregar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Congreso de Ciencias</td>
+                    <td>FAC02</td>
+                    <td><button onclick="alert('Usuario agregado al evento');">Agregar</button></td>
+                </tr>
+                <!-- Más eventos -->
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
