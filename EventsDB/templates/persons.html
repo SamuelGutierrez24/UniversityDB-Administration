@@ -50,7 +50,13 @@
                 <td>{{ persona.ciudad }}</td>
                 <td>{{ persona.departamento }}</td>
                 <td>{{ persona.pais }}</td>
-                <td><button onclick="window.location.href='agregar_evento.html';">Agregar a Evento</button></td>
+                <td>
+                    <form method="post" action="{% url 'add_to_event' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="identificacion" value="{{ persona.identificacion }}">
+                        <button href="persons/addEvent" type="submit">Agregar a Evento</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
