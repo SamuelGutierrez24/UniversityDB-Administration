@@ -23,6 +23,17 @@
 
     <main>
         <h2>Filtro de eventos</h2>
+        <form action="formClass" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Buscar" id="searchBtn" name="searchBtn">
+        </form>
+        <table>
+            
+        </table>
     </main>
+    <footer>
+        <p>&copy; 2024 Universidad del Sur Occidente</p>
+    </footer>
 </body>
 </html>

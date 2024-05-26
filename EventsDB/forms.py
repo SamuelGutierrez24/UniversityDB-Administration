@@ -40,3 +40,8 @@ class CityUserForm(forms.Form):
     ciudad = forms.CharField(label='Ciudad', max_length=100)
     departamento = forms.CharField(label='Departamento', max_length=100)
     pais = forms.CharField(label='País', max_length=100)
+
+class FilterEventForm(forms.Form):
+    titulo = forms.CharField(label='Título del evento',max_length=100,widget=forms.TextInput(
+        attrs={'placeholder':'Nombre del Evento', 'class': 'inputForm'}
+    ))
