@@ -8,20 +8,22 @@ personasdb = db["Personas"]
 
 
 def listP(request):
+
     personas = personasdb.find()
-
-    if request.method == 'POST':
-        if 'searchBtn' in request.POST:
-            id = request.POST.get('idPerson', None)
-            if id:
-                personas = personas.find({'identificacion': id})
-            else:
-                personas = personas.find()  
-    else:
-        personas = personas.find()
-
     context = {'personas': personas}
-    return render(request, 'persons.html', context)
+
+    if request.method == 'GET':
+        return render(request,'persons.html', context)
+    else:
+        if 'searchBtn' in request.POST:
+            if 'idPerson' != None:
+                id = request.POST.get('idPerson')
+            
+                personas = personasdb.find({'identificacion':id})
+
+        context = {'personas': personas}
+
+        return render(request,'persons.html', context)
 
 
     
