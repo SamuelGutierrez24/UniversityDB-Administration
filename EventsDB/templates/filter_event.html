@@ -28,9 +28,19 @@
             {{ form.as_p }}
             <input type="submit" value="Buscar" id="searchBtn" name="searchBtn">
         </form>
-        <table>
-            
-        </table>
+        
+        <div class="list" name="eventList" id="eventList">
+            {% for event in events %}
+
+                <ul>
+                    <li>
+                        <p>Nombre del Evento: {{event.titulo}}</p>
+                    </li>
+                </ul>
+
+            {%endfor%}
+        </div>
+        
     </main>
     <footer>
         <p>&copy; 2024 Universidad del Sur Occidente</p>
