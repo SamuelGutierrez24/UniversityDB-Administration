@@ -21,7 +21,7 @@ from EventsDB.views import register_events
 from EventsDB.views import register_person
 from EventsDB.views import filter_event
 from EventsDB.views import persons
-
+from EventsDB.views import events
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,5 +33,6 @@ urlpatterns = [
     path('filterEvents/',filter_event.filter_Event,name='fEvent'),
     path('persons/',persons.listP,name='listP'),
     path('persons/addEvent',persons.add_to_event,name='add_to_event'),
+    path('events/',events.listE,name='listE'),
 
 ]

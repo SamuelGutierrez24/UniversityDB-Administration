@@ -22,31 +22,25 @@
     </nav>
 </header>
 <div class="table-container">
-    <h1>Personas Registradas</h1>
+    <h1>Eventos Registrados</h1>
     <table>
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Identificación</th>
-                <th>Correo</th>
-                <th>Tipo de Empleado</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th>Fecha</th>
                 <th>Ciudad</th>
-                <th>Departamento</th>
-                <th>País</th>
-                <th>Acción</th>
             </tr>
         </thead>
         <tbody>
-            {% for persona in personas %}
+            {% for event in events %}
             <tr>
-                <td>{{ persona.nombres }}</td>
-                <td>{{ persona.identificacion }}</td>
-                <td>{{ persona.email }}</td>
-                <td>{{ persona.tipo_empleado }}</td>
-                <td>{{ persona.ciudad }}</td>
-                <td>{{ persona.departamento }}</td>
-                <td>{{ persona.pais }}</td>
-                <td><button onclick="window.location.href='agregar_evento.html';">Agregar a Evento</button></td>
+                <td>{{ event.titulo }}</td>
+                <td>{{ event.descripcion }}</td>
+                <td>{{ event.categoria }}</td>
+                <td>{{ event.fecha }}</td>
+                <td>{{ event.lugar.ciudad }}</td>
             </tr>
             {% endfor %}
         </tbody>

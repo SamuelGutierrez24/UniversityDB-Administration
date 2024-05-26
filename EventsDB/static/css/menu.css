@@ -1,3 +1,17 @@
+div.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+div.events-btn {
+    background-color: chartreuse;
+    padding: 40px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
