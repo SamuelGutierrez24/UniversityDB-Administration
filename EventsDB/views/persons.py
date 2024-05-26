@@ -30,8 +30,21 @@ def add_to_event(request):
 
     if request.method == 'POST':
         id = request.POST["identificacion"]
+        request.session['persona_id'] = id
         persona = personasdb.find_one({"identificacion": id})
-        
         eventos = eventosdb.find()
+        print(eventos)
         context = {'persona': persona, 'eventos': eventos}
         return render(request,'add_to_event.html', context)
+    
+    elif request.method == 'GET':
+        eventoId = request.GET.get("idEvento")
+        print(f"eventoId recibido: {eventoId}")
+        personaId = request.session.get('persona_id')
+        print(eventoId)
+        persona = personasdb.find_one({"identificacion": personaId})
+        eventosdb.update_one({"_id:" : eventoId},{"$push": {"personas": persona}})
+        return render(request,'menu.html')
+    
+    else:
+        return render(request,'persons.html', context)

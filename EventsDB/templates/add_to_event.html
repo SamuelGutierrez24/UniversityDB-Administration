@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Agregar Persona a Evento</title>
-<link rel="stylesheet" href="/static/css/add_to_event.css">
+    <meta charset="UTF-8">
+    <title>Agregar Persona a Evento</title>
+    <link rel="stylesheet" href="/static/css/add_to_event.css">
 </head>
 <body>
 <header>
@@ -38,11 +38,12 @@
         <table>
             <thead>
                 <tr>
-                    <th>Titulo</th>
+                    <th>Título</th>
                     <th>Descripción</th>
-                    <th>Categoria</th>
-                    <th>fecha</th>
-                    <th>ciudad</th>
+                    <th>Categoría</th>
+                    <th>Fecha</th>
+                    <th>Ciudad</th>
+                    <th>id</th>
                     <th>Acción</th>
                 </tr>
             </thead>
@@ -54,7 +55,13 @@
                     <td>{{ evento.categoria }}</td>
                     <td>{{ evento.fecha }}</td>
                     <td>{{ evento.lugar.ciudad }}</td>
-                    <td><button onclick="window.location.href='agregar_evento.html';">Agregar a Evento</button></td>
+                    <td>{{ evento.id }}</td>
+                    <td>
+                        <form method="GET" action="{% url 'add_to_event' %}">
+                            <input type="hidden" name="idEvento" value="{{ evento.ObjectId }}">
+                            <button type="submit">Agregar a Evento</button>
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
