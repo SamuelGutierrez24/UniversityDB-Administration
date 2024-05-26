@@ -34,5 +34,6 @@ urlpatterns = [
     path('persons/',persons.listP,name='listP'),
     path('persons/addEvent',persons.add_to_event,name='add_to_event'),
     path('events/',events.listE,name='listE'),
+    path('events/showEvent/',events.show_event,name='show_event'),
 
 ]

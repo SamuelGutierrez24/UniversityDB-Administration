@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Agregar Persona a Evento</title>
+<link rel="stylesheet" href="/static/css/add_to_event.css">
+</head>
+<body>
+<header>
+    <h1>Universidad del Sur Occidente</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'menu' %}">Inicio</a></li>
+            <li><a href="{% url 'rEvents_a' %}">Registrar Evento</a></li>
+            <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
+            <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
+            <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
+            <li><a href="{% url 'fEvent' %}">Filtrar Eventos</a></li>
+            <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
+            <li><a href="{% url 'listE' %}">Mostrar Eventos</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="main-container">
+    <div class="info-container">
+        <h2>Información del Evento</h2>
+        <ul>
+            <li>Título: {{ event.titulo }}</li>
+            <li>Descrición: {{ event.descripcion }}</li>
+            <li>Categoría: {{ event.categoria }}</li>
+            <li>Fecha: {{ event.fecha }}</li>
+            <li>Ciudad: {{ event.lugar.ciudad }}</li>
+            <li>Facultad: {{ event.facultad }}</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

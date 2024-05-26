@@ -41,6 +41,13 @@
                 <td>{{ event.categoria }}</td>
                 <td>{{ event.fecha }}</td>
                 <td>{{ event.lugar.ciudad }}</td>
+                <td>
+                    <form method="post" action="{% url 'show_event' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="titulo" value="{{ event.titulo }}">
+                        <button href="events/showEvent" type="submit">Mostrar Evento</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
