@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú - Universidad del Sur Occidente</title>
-    <link rel="stylesheet" href="/static/css/menu.css">
+    <title>Comentarios - Universidad del Sur Occidente</title>
+    <link rel="stylesheet" href="/static/css/comments.css">
 </head>
 <body>
     <header>
@@ -23,15 +23,30 @@
         </nav>
     </header>
     <main>
-        <!-- Aquí irá el contenido de las diferentes secciones de la página -->
-        <div class="main-container">
-            <div class="events-btn">
-                Mostrar Eventos
-            </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+        </form>
+
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Comentarios
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for comment in comments%}
+                    <td>
+                        {{ comment.descripcion }}
+                    </td>
+                    {%endfor%}
+                </tbody>
+            </table>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2024 Universidad del Sur Occidente</p>
-    </footer>
+    
 </body>
 </html>

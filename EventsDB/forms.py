@@ -39,7 +39,10 @@ class CityUserForm(forms.Form):
     departamento = forms.CharField(label='Departamento', max_length=100)
     pais = forms.CharField(label='País', max_length=100)
 
-class FilterEventForm(forms.Form):
-    titulo = forms.CharField(label='Título del evento',max_length=100,widget=forms.TextInput(
-        attrs={'placeholder':'Nombre del Evento', 'class': 'inputForm'}
+class CommentsForm(forms.Form):
+    idPerson = forms.CharField(label='Identificación de la persona',required=False,widget=forms.TextInput(
+        attrs={'placeholder' : 'Identicación Persona','name':'idPerson'}
+    ))
+    idEvent = forms.CharField(label='Identificación del evento',required=False,widget=forms.TextInput(
+        attrs={'placeholder' : 'Identicación Evento','name':'idEvent'}
     ))
