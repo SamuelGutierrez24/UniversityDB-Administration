@@ -22,6 +22,11 @@
 </header>
 <div class="table-container">
     <h1>Personas Registradas</h1>
+    <form action="" method="POST" id="search">
+        {% csrf_token %}
+        <input type="text" placeholder="Ingrese la identificacion de la persona" id="idPerson">
+        <input type="submit" value="Buscar" id="searchBtn">
+    </form>
     <table>
         <thead>
             <tr>
