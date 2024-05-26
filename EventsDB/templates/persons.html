@@ -16,6 +16,7 @@
             <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
             <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
             <li><a href="{% url 'fEvent' %}">Filtrar Eventos</a></li>
+            <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
         </ul>
     </nav>
 </header>
@@ -25,30 +26,28 @@
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Apellido</th>
                 <th>Identificación</th>
                 <th>Correo</th>
-                <th>Tipo de Contratación</th>
                 <th>Tipo de Empleado</th>
-                <th>Código de Facultad</th>
-                <th>Código de Sede</th>
+                <th>Ciudad</th>
+                <th>Departamento</th>
+                <th>País</th>
                 <th>Acción</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Aquí puedes agregar filas de usuarios -->
+            {% for persona in personas %}
             <tr>
-                <td>Juan</td>
-                <td>Pérez</td>
-                <td>12345678</td>
-                <td>juan.perez@example.com</td>
-                <td>Temporal</td>
-                <td>Profesor</td>
-                <td>FAC01</td>
-                <td>SED01</td>
+                <td>{{ persona.nombres }}</td>
+                <td>{{ persona.identificacion }}</td>
+                <td>{{ persona.email }}</td>
+                <td>{{ persona.tipo_empleado }}</td>
+                <td>{{ persona.ciudad }}</td>
+                <td>{{ persona.departamento }}</td>
+                <td>{{ persona.pais }}</td>
                 <td><button onclick="window.location.href='agregar_evento.html';">Agregar a Evento</button></td>
             </tr>
-            <!-- Repite la fila anterior para más usuarios -->
+            {% endfor %}
         </tbody>
     </table>
 </div>
