@@ -2,14 +2,16 @@ div.main-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: 100%;
 }
 
 div.events-btn {
-    background-color: chartreuse;
+    background-color: black;
     padding: 40px;
     font-size: 20px;
     font-weight: 700;
     color: #fff;
+    cursor: pointer;
 }
 
 body {

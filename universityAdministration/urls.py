@@ -34,5 +34,6 @@ urlpatterns = [
     path('persons/addEvent',persons.add_to_event,name='add_to_event'),
     path('events/',events.listE,name='listE'),
     path('comments/',comments.filterComments,name='comments')
+    path('events/showEvent/',events.show_event,name='show_event'),
 
 ]
