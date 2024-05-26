@@ -25,8 +25,8 @@
     <h1>Personas Registradas</h1>
     <form action="" method="POST" id="search">
         {% csrf_token %}
-        <input type="text" placeholder="Ingrese la identificacion de la persona" id="idPerson">
-        <input type="submit" value="Buscar" id="searchBtn">
+        <input type="text" placeholder="Ingrese la identificacion de la persona" id="idPerson" name="idPerson">
+        <input type="submit" value="Buscar" id="searchBtn" name="searchBtn">
     </form>
     <table>
         <thead>

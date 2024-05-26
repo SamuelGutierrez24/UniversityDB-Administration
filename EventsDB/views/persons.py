@@ -11,7 +11,20 @@ eventosdb = db["Eventos"]
 def listP(request):
     personas = personasdb.find()
     context = {'personas': personas}
-    return render(request,'persons.html', context)
+
+    if request.method == 'GET':
+        return render(request,'persons.html', context)
+    else:
+        peopleID = personasdb.find()
+        if 'searchBtn' in request.POST:
+            if request.POST['idPerson'] == 'Empty':
+                peopleID = personasdb.find()
+            id = request.POST['idPerson']
+            peopleID = personasdb.find({'identificacion': f'{id}'})
+            print(type(id))
+        context = {'personas': peopleID}
+        return render(request,'persons.html', context)
+
 
 def add_to_event(request):
 
