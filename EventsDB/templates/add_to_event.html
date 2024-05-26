@@ -15,7 +15,6 @@
             <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
             <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
             <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
-            <li><a href="{% url 'fEvent' %}">Filtrar Eventos</a></li>
             <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
             <li><a href="{% url 'listE' %}">Mostrar Eventos</a></li>
         </ul>
@@ -30,7 +29,7 @@
             <li>Correo: {{ persona.email }}</li>
             <li>Tipo de empleado: {{ persona.tipo_empleado }}</li>
             <li>Ciudad: {{ persona.ciudad }}</li>
-            <li>Departamento: {{ persona.departamento }}</li>
+            <li>Departamento: {{  persona.departamento }}</li>
             <li>País: {{ persona.pais }}</li>
         </ul>
     </div>
