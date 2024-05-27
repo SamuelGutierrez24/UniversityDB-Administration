@@ -11,3 +11,10 @@ def listE(request):
     events = eventsdb.find()
     context = {'events': events}
     return render(request,'events.html', context)
+
+def show_event(request):
+    if request.method == 'POST':
+        titulo = request.POST["titulo"]
+        event = eventsdb.find_one({"titulo": titulo})
+        context = {'event': event}
+        return render(request,'show_event.html', context)

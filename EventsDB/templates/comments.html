@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtro de Eventos - Universidad del Sur Occidente</title>
-    <link rel="stylesheet" href="/static/css/filter_event.css">
+    <title>Comentarios - Universidad del Sur Occidente</title>
+    <link rel="stylesheet" href="/static/css/comments.css">
 </head>
 <body>
     <header>
@@ -16,36 +16,37 @@
                 <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
                 <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
                 <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
-                <li><a href="{% url 'fEvent' %}">Filtrar Eventos</a></li>
                 <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
                 <li><a href="{% url 'listE' %}">Mostrar Eventos</a></li>
+                <li><a href="{% url 'comments' %}">Comentarios</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
-        <h2>Filtro de eventos</h2>
-        <form action="formClass" method="POST">
+        <form action="" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Buscar" id="searchBtn" name="searchBtn">
         </form>
-        
-        <div class="list" name="eventList" id="eventList">
-            {% for event in events %}
 
-                <ul>
-                    <li>
-                        <p>Nombre del Evento: {{event.titulo}}</p>
-                    </li>
-                </ul>
-
-            {%endfor%}
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Comentarios
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for comment in comments%}
+                    <td>
+                        {{ comment.descripcion }}
+                    </td>
+                    {%endfor%}
+                </tbody>
+            </table>
         </div>
-        
     </main>
-    <footer>
-        <p>&copy; 2024 Universidad del Sur Occidente</p>
-    </footer>
+    
 </body>
 </html>

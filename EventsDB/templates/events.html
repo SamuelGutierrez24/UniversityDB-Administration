@@ -15,9 +15,10 @@
             <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
             <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
             <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
-            <li><a href="{% url 'fEvent' %}">Filtrar Eventos</a></li>
             <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
             <li><a href="{% url 'listE' %}">Mostrar Eventos</a></li>
+            <li><a href="{% url 'comments' %}">Comentarios</a></li>
+
         </ul>
     </nav>
 </header>
@@ -41,6 +42,13 @@
                 <td>{{ event.categoria }}</td>
                 <td>{{ event.fecha }}</td>
                 <td>{{ event.lugar.ciudad }}</td>
+                <td>
+                    <form method="post" action="{% url 'show_event' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="titulo" value="{{ event.titulo }}">
+                        <button href="events/showEvent" type="submit">Mostrar Evento</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

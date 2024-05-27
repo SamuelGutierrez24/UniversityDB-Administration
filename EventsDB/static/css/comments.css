@@ -2,16 +2,14 @@ div.main-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 100%;
 }
 
 div.events-btn {
-    background-color: black;
+    background-color: chartreuse;
     padding: 40px;
     font-size: 20px;
     font-weight: 700;
     color: #fff;
-    cursor: pointer;
 }
 
 body {
@@ -48,18 +46,4 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline;
-}
-
-main {
-    padding: 20px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
