@@ -1,7 +1,6 @@
 import datetime
 from django.shortcuts import render,redirect
 from EventsDB.forms import *
-from EventsDB.models import Empleado
 from pymongo import MongoClient
 
 

@@ -91,12 +91,15 @@ WSGI_APPLICATION = 'universityAdministration.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Events',
         'USER': 'Events_owner',
         'PASSWORD': 'P1awKzHnEV5s',
         'HOST': 'ep-summer-mode-a4uqmdgb.us-east-1.aws.neon.tech',
-        'PORT': ''
+        'PORT': '5432',
+        'OPTIONS':{
+            'sslmode': 'require'
+        }
     }
 }
 

@@ -1,6 +1,7 @@
 # En el archivo forms.py de tu aplicación Django
 
 from django import forms
+from .models import *
 
 # Define un formulario para el registro de eventos
 class EventForm(forms.Form):
@@ -14,6 +15,8 @@ class EventForm(forms.Form):
     ]
     categoria = forms.ChoiceField(label='Categoría', choices=CATEGORIAS_CHOICES)
     fecha = forms.DateField(label='Fecha', widget=forms.DateInput(attrs={'type': 'date'}))
+    facultad = forms.ModelChoiceField(queryset=facultades.objects.all(), label='Facultad organizadora')
+
 
 class EventPlaceForm(forms.Form):
     nombre = forms.CharField(label='Nombre', max_length=100)

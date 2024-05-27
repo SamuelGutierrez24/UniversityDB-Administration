@@ -12,6 +12,7 @@ lugares = db["Lugares"]
 def register1(request):
     if request.method == 'POST':
         form = EventForm(request.POST)
+        print(form.is_valid())
         if form.is_valid():
             fecha = datetime.datetime.strptime(request.POST['fecha'], '%Y-%m-%d').date()
             fecha2 = fecha.isoformat()
@@ -23,10 +24,11 @@ def register1(request):
                 return render(request, 'register_event_pageA.html', {'form': form})
             
             request.session['r_events_1'] = {
-                'titulo': request.POST['titulo'],
-                'descripcion': request.POST['descripcion'],
-                'categoria': request.POST['categoria'],
-                'fecha': fecha2
+                'titulo': form.cleaned_data['titulo'],
+                'descripcion': form.cleaned_data['descripcion'],
+                'categoria': form.cleaned_data['categoria'],
+                'fecha': fecha2,
+                'facultad':form.cleaned_data['facultad']
             }
             print(request.POST)
             return redirect('rEvents_b')
@@ -34,7 +36,8 @@ def register1(request):
             return render(request, 'register_event_pageA.html', {'form': form})
     
     else:
-        form = EventForm(request.POST)
+        form = EventForm()
+        print(form)
         return render(request,'register_event_pageA.html',{'form': form})
     
 def register2(request):
