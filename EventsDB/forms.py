@@ -43,9 +43,15 @@ class CityUserForm(forms.Form):
     pais = forms.CharField(label='País', max_length=100)
 
 class CommentsForm(forms.Form):
-    idPerson = forms.CharField(label='Identificación de la persona',required=False,widget=forms.TextInput(
-        attrs={'placeholder' : 'Identicación Persona','name':'idPerson'}
+    idPerson = forms.CharField(label='Ingrese la identificación de la persona',required=True,widget=forms.TextInput(
+        attrs={'placeholder': 'Identificación Persona','name':'idPerson'}
     ))
-    idEvent = forms.CharField(label='Identificación del evento',required=False,widget=forms.TextInput(
+    namePerson = forms.CharField(label='Ingrese el nombre de la persona que comenta',required=True,widget=forms.TextInput(
+        attrs={'placeholder' : 'Identicación Persona','name':'namePerson'}
+    ))
+    idEvent = forms.CharField(label='Ingrese el nombre del evento',required=True,widget=forms.TextInput(
         attrs={'placeholder' : 'Identicación Evento','name':'idEvent'}
+    ))
+    comment = forms.CharField(label='Comentaios sobre el evento',required=True,widget=forms.Textarea(
+        attrs={'placeholder' : 'Escribe tu comentario aquí...', 'name' : 'comment'}
     ))

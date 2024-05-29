@@ -22,31 +22,35 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-        </form>
-
-        <div class="container">
+    <main class="main-container">
+        <div class="table-container">
             <table>
                 <thead>
                     <tr>
-                        <th>
-                            Comentarios
-                        </th>
+                        <th>Nombre</th>
+                        <th>ID Evento</th>
+                        <th>Comentario</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for comment in comments%}
-                    <td>
-                        {{ comment.descripcion }}
-                    </td>
-                    {%endfor%}
+                    {% for comment in comments %}
+                    <tr>
+                        <td>{{ comment.nombre }}</td>
+                        <td>{{ comment.evento_id }}</td>
+                        <td>{{ comment.descripcion }}</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
+        
+        <div class="form-container">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
     </main>
-    
 </body>
 </html>
