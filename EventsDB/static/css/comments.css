@@ -35,14 +35,12 @@ nav ul li a:hover {
 }
 
 .main-container {
-    display: grid;
     justify-content: center;
     align-items: flex-start;
     padding: 20px;
 }
 
 .table-container {
-    grid-column: 2;
     margin-right: 20px;
 }
 
@@ -67,7 +65,6 @@ th {
 }
 
 .form-container {
-    grid-column: 1;
     margin-left: 20px;
 }
 
