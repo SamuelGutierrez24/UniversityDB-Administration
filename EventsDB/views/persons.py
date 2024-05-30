@@ -33,17 +33,29 @@ def add_to_event(request):
         request.session['persona_id'] = id
         persona = personasdb.find_one({"identificacion": id})
         eventos = eventosdb.find()
-        print(eventos)
-        context = {'persona': persona, 'eventos': eventos}
-        return render(request,'add_to_event.html', context)
+        categoria = persona.get('intereses')
+        if categoria:
+            print(categoria)
+            recomendados = eventosdb.find({'categoria':{'$in': categoria}})
+            print(recomendados)
+            print(eventos)
+            context = {'persona': persona, 'eventos': eventos, 'recomendados': recomendados}
+            return render(request,'add_to_event.html', context)
+        else:
+            context = {'persona': persona, 'eventos': eventos}
+            return render(request,'add_to_event.html', context)
     
     elif request.method == 'GET':
         titulo = request.GET.get("tituloEvento")
         print(f"eventoId recibido: {titulo}")
         personaId = request.session.get('persona_id')
-        print(titulo)
+        print(personaId)
+        print(eventoId)
         persona = personasdb.find_one({"identificacion": personaId})
-        eventosdb.update_one({"titulo" : titulo},{"$push": {"personas": persona}})
+        evento = eventosdb.find_one({"titulo": eventoId})
+        categoria_evento = evento.get('categoria')
+        eventosdb.update_one({"titulo" : eventoId},{"$push": {"personas": persona}})
+        personasdb.update_one({"identificacion" : personaId},{"$push" : {"intereses" : categoria_evento}})
         return render(request,'menu.html')
     else:
         return render(request,'persons.html', context)
