@@ -23,14 +23,18 @@ def register1(request):
                 form.add_error(None, 'El evento con este título y fecha ya existe.')
                 return render(request, 'register_event_pageA.html', {'form': form})
             
+            facultades_seleccionadas = form.cleaned_data['facultad']
+            nombres_facultades = [facultad.nombre for facultad in facultades_seleccionadas]
             request.session['r_events_1'] = {
                 'titulo': form.cleaned_data['titulo'],
                 'descripcion': form.cleaned_data['descripcion'],
                 'categoria': form.cleaned_data['categoria'],
                 'fecha': fecha2,
-                'facultad':form.cleaned_data['facultad']
+                'facultad': nombres_facultades
             }
+            print(request.session['r_events_1'])
             print(request.POST)
+            print('antes')
             return redirect('rEvents_b')
         else:
             return render(request, 'register_event_pageA.html', {'form': form})
@@ -61,5 +65,6 @@ def register2(request):
             print(request.POST)
             return redirect('menu')
     else:
+        print('llegue')
         form = EventPlaceForm(request.POST)
         return render(request,'register_event_pagB.html',{'form': form})
