@@ -6,54 +6,61 @@
 <link rel="stylesheet" href="/static/css/persons.css">
 </head>
 <body>
-<header>
-    <h1>Universidad del Sur Occidente</h1>
-    <nav>
-        <ul>
-            <li><a href="{% url 'menu' %}">Inicio</a></li>
-            <li><a href="{% url 'rEvents_a' %}">Registrar Evento</a></li>
-            <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
-            <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
-            <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
-            <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
-            <li><a href="{% url 'listE' %}">Mostrar Eventos</a></li>
-            <li><a href="{% url 'comments' %}">Comentarios</a></li>
+    <header>
+        <h1>Universidad del Sur Occidente</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'menu' %}">Inicio</a></li>
+                <li><a href="{% url 'rEvents_a' %}">Registrar Evento</a></li>
+                <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
+                <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
+                <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
+                <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
+                <li><a href="{% url 'listE' %}">Mostrar Eventos</a></li>
+                <li><a href="{% url 'comments' %}">Comentarios</a></li>
 
-        </ul>
-    </nav>
-</header>
-<div class="table-container">
-    <h1>Eventos Registrados</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Título</th>
-                <th>Descripción</th>
-                <th>Categoría</th>
-                <th>Fecha</th>
-                <th>Ciudad</th>
-                <th>Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for event in events %}
-            <tr>
-                <td>{{ event.titulo }}</td>
-                <td>{{ event.descripcion }}</td>
-                <td>{{ event.categoria }}</td>
-                <td>{{ event.fecha }}</td>
-                <td>{{ event.lugar.ciudad }}</td>
-                <td>
-                    <form method="post" action="{% url 'show_event' %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="titulo" value="{{ event.titulo }}">
-                        <button href="events/showEvent" type="submit">Mostrar Evento</button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+            </ul>
+        </nav>
+    </header>
+    <div class="table-container">
+        <h1>Eventos Registrados</h1>
+        <div class="form-container">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <strong>{{ form.as_p }}</strong>
+                <input type="submit" value="Buscar" id="search" name="search">
+            </form>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Categoría</th>
+                    <th>Fecha</th>
+                    <th>Ciudad</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                <tr>
+                    <td>{{ event.titulo }}</td>
+                    <td>{{ event.descripcion }}</td>
+                    <td>{{ event.categoria }}</td>
+                    <td>{{ event.fecha }}</td>
+                    <td>{{ event.lugar.ciudad }}</td>
+                    <td>
+                        <form method="post" action="{% url 'show_event' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="titulo" value="{{ event.titulo }}">
+                            <button href="events/showEvent" type="submit">Mostrar Evento</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

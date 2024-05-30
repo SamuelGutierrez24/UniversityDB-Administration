@@ -52,3 +52,12 @@ class CommentsForm(forms.Form):
     comment = forms.CharField(label='Comentarios sobre el evento',required=True,widget=forms.Textarea(
         attrs={'placeholder' : 'Escribe tu comentario aquí...', 'name' : 'comment'}
     ))
+
+class FilterEventsForm(forms.Form):
+    CATEGORIAS_CHOICES = [
+        ('Informativo', 'Informativo'),
+        ('Taller', 'Taller'),
+        ('Innovación', 'Innovación'),
+        ('Modificaciones', 'Modificaciones'),
+    ]
+    categoria = forms.ChoiceField(label='Categoría', choices=CATEGORIAS_CHOICES)
