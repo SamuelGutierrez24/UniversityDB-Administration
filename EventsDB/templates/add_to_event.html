@@ -69,6 +69,40 @@
             </tbody>
         </table>
     </div>
+    <div class="event-container">
+        <h2>Eventos Recomendados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Categoría</th>
+                    <th>Fecha</th>
+                    <th>Ciudad</th>
+                    <th>id</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recomendado in recomendados %}
+                <tr>
+                    <td>{{ recomendado.titulo }}</td>
+                    <td>{{ recomendado.descripcion }}</td>
+                    <td>{{ recomendado.categoria }}</td>
+                    <td>{{ recomendado.fecha }}</td>
+                    <td>{{ recomendado.lugar.ciudad }}</td>
+                    <td>{{ recomendado.id }}</td>
+                    <td>
+                        <form method="GET" action="{% url 'add_to_event' %}">
+                            <input type="hidden" name="tituloEvento" value="{{ recomendado.titulo }}">
+                            <button type="submit">Agregar a Evento</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>
