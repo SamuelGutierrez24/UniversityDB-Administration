@@ -52,6 +52,7 @@ footer {
 form {
     max-width: 400px;
     margin: 0 auto;
+    
 }
 
 form label {
@@ -81,4 +82,7 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background-color: #555;
+}
+.errorlist {
+    display: none;
 }

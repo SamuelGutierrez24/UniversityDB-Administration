@@ -15,7 +15,8 @@ class EventForm(forms.Form):
     ]
     categoria = forms.ChoiceField(label='Categoría', choices=CATEGORIAS_CHOICES)
     fecha = forms.DateField(label='Fecha', widget=forms.DateInput(attrs={'type': 'date'}))
-    facultad = forms.ModelChoiceField(queryset=facultades.objects.all(), label='Facultad organizadora')
+    facultad = forms.ModelMultipleChoiceField(queryset=facultades.objects.all(), label='Facultad organizadora', widget=forms.CheckboxSelectMultiple,
+        required=False)
 
 
 class EventPlaceForm(forms.Form):

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Evento - Universidad del Sur Occidente</title>
     <link rel="stylesheet" href="/static/css/register_event_pageA.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <script src="https://unpkg.com/@mui/material@latest/dist/material.umd.min.js"></script>
 </head>
 <body>
     <header>
@@ -27,12 +30,13 @@
         <h2>Registro de Evento</h2>
         <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            <strong>{{ form.as_p }}</strong>
             {% if form.as_p.errors %}
                 <div class="error">{{ form.as_p.errors }}</div>
             {% endif %}
-            <input type="submit" value="Siguiente">
+            <input type="submit" value="Siguiente" class="mui-btn mui-btn-raised">
         </form>
     </main>
 </body>
 </html>
+

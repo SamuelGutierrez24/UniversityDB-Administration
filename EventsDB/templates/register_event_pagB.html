@@ -27,7 +27,10 @@
         <h2>Registro de Lugar del Evento</h2>
         <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            <strong>{{ form.as_p }}</strong>
+            {% if form.as_p.errors %}
+                <div class="error">{{ form.as_p.errors }}</div>
+            {% endif %}
             <input type="submit" value="Registrar">
         </form>
     </main>
