@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Agregar Persona a Evento</title>
-<link rel="stylesheet" href="/static/css/add_to_event.css">
+    <meta charset="UTF-8">
+    <title>Agregar Persona a Evento</title>
+    <link rel="stylesheet" href="/static/css/add_to_event.css">
 </head>
 <body>
 <header>
@@ -12,11 +12,10 @@
         <ul>
             <li><a href="{% url 'menu' %}">Inicio</a></li>
             <li><a href="{% url 'rEvents_a' %}">Registrar Evento</a></li>
-            <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
             <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
-            <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
             <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
             <li><a href="{% url 'listE' %}">Mostrar Eventos</a></li>
+            <li><a href="{% url 'comments' %}">Comentarios</a></li>
         </ul>
     </nav>
 </header>
@@ -24,13 +23,40 @@
     <div class="info-container">
         <h2>Información del Evento</h2>
         <ul>
-            <li>Título: {{ event.titulo }}</li>
-            <li>Descripción: {{ event.descripcion }}</li>
-            <li>Categoría: {{ event.categoria }}</li>
-            <li>Fecha: {{ event.fecha }}</li>
-            <li>Ciudad: {{ event.lugar.ciudad }}</li>
-            <li>Facultad: {{ event.facultad }}</li>
+            <li><strong>Título:</strong> {{ event.titulo }}</li>
+            <li><strong>Descripción:</strong> {{ event.descripcion }}</li>
+            <li><strong>Categoría:</strong> {{ event.categoria }}</li>
+            <li><strong>Fecha:</strong> {{ event.fecha }}</li>
+            <li><strong>Ciudad:</strong> {{ event.lugar.ciudad }}</li>
+            <li><strong>Facultad:</strong> {{ event.facultad }}</li>
         </ul>
+    </div>
+    <div class="table-container">
+        <h2>Lista de Personas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Identificación</th>
+                    <th>Nombres</th>
+                    <th>Tipo Empleado</th>
+                    <th>Email</th>
+                    <th>Ciudad</th>
+                    <th>País</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for persona in personas %}
+                <tr>
+                    <td>{{ persona.identificacion }}</td>
+                    <td>{{ persona.nombres }}</td>
+                    <td>{{ persona.tipo_empleado }}</td>
+                    <td>{{ persona.email }}</td>
+                    <td>{{ persona.ciudad }}</td>
+                    <td>{{ persona.pais }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 </body>

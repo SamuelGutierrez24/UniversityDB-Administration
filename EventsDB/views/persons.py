@@ -38,13 +38,12 @@ def add_to_event(request):
         return render(request,'add_to_event.html', context)
     
     elif request.method == 'GET':
-        eventoId = request.GET.get("tituloEvento")
-        print(f"eventoId recibido: {eventoId}")
+        titulo = request.GET.get("tituloEvento")
+        print(f"eventoId recibido: {titulo}")
         personaId = request.session.get('persona_id')
-        print(eventoId)
+        print(titulo)
         persona = personasdb.find_one({"identificacion": personaId})
-        eventosdb.update_one({"_id:" : eventoId},{"$push": {"personas": persona}})
+        eventosdb.update_one({"titulo" : titulo},{"$push": {"personas": persona}})
         return render(request,'menu.html')
-    
     else:
         return render(request,'persons.html', context)

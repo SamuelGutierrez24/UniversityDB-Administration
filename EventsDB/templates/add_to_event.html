@@ -12,13 +12,10 @@
         <ul>
             <li><a href="{% url 'menu' %}">Inicio</a></li>
             <li><a href="{% url 'rEvents_a' %}">Registrar Evento</a></li>
-            <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
             <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
-            <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
             <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
             <li><a href="{% url 'listE' %}">Mostrar Eventos</a></li>
             <li><a href="{% url 'comments' %}">Comentarios</a></li>
-
         </ul>
     </nav>
 </header>
@@ -45,7 +42,6 @@
                     <th>Categoría</th>
                     <th>Fecha</th>
                     <th>Ciudad</th>
-                    <th>id</th>
                     <th>Acción</th>
                 </tr>
             </thead>
@@ -57,7 +53,6 @@
                     <td>{{ evento.categoria }}</td>
                     <td>{{ evento.fecha }}</td>
                     <td>{{ evento.lugar.ciudad }}</td>
-                    <td>{{ evento.id }}</td>
                     <td>
                         <form method="GET" action="{% url 'add_to_event' %}">
                             <input type="hidden" name="tituloEvento" value="{{ evento.titulo }}">

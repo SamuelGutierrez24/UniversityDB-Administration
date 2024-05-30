@@ -42,9 +42,9 @@ nav ul li a:hover {
 
 .table-container {
     margin-right: 20px;
-    overflow-x: auto; /* Desplazamiento horizontal si es necesario */
-    overflow-y: auto; /* Desplazamiento vertical si es necesario */
-    max-height: 500px; /* Altura máxima del contenedor */
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 500px;
 }
 
 table {
