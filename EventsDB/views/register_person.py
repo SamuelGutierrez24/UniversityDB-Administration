@@ -9,6 +9,8 @@ db = client["Datos"]
 personas = db["Personas"]
 
 def register1(request):
+    initial_data = request.session.get('pre_filled_data', {})
+    form = UsuarioForm(initial=initial_data)
     if request.method == 'POST':
         form = UsuarioForm(request.POST)
         if form.is_valid():
@@ -48,6 +50,7 @@ def register2(request):
     else:
         form = CityUserForm(request.POST)
         return render(request,'register_user2.html',{'form': form})
+    
     
 
 

@@ -15,7 +15,6 @@
             <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
             <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
             <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
-            <li><a href="{% url 'fEvent' %}">Filtrar Eventos</a></li>
             <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
             <li><a href="{% url 'listE' %}">Mostrar Eventos</a></li>
         </ul>
@@ -26,7 +25,7 @@
         <h2>Información del Evento</h2>
         <ul>
             <li>Título: {{ event.titulo }}</li>
-            <li>Descrición: {{ event.descripcion }}</li>
+            <li>Descripción: {{ event.descripcion }}</li>
             <li>Categoría: {{ event.categoria }}</li>
             <li>Fecha: {{ event.fecha }}</li>
             <li>Ciudad: {{ event.lugar.ciudad }}</li>

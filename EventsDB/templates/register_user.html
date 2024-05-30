@@ -25,12 +25,44 @@
     </header>
     <main>
         <h2>Registro de Usuario</h2>
-        <form action="" method="POST">
+        <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
+            {% if form.as_p.errors %}
+                <div class="error">{{ form.as_p.errors }}</div>
+            {% endif %}
             <input type="submit" value="Siguiente">
         </form>
     </main>
-   
 </body>
+
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('#id_identificacion').blur(function(){
+        var identificacion = $(this).val();
+        if(identificacion) {
+            $.ajax({
+                url: '{% url "check_user" %}',
+                data: {
+                    'identificacion': identificacion
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if(data.exists) {
+                        $('#id_nombres').val(data.nombres);
+                        $('#id_email').val(data.email);
+                        $('#id_tipo_empleado').val(data.tipo_empleado);
+                        // Asegúrate de actualizar otros campos necesarios
+                    } else {
+                        $('#id_nombres').val('');
+                        $('#id_email').val('');
+                        $('#id_tipo_empleado').val('');
+                    }
+                }
+            });
+        }
+    });
+});
+</script>

@@ -22,6 +22,7 @@ from EventsDB.views import register_person
 from EventsDB.views import persons
 from EventsDB.views import events
 from EventsDB.views import comments
+from EventsDB.views import ajax
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,4 +36,6 @@ urlpatterns = [
     path('events/',events.listE,name='listE'),
     path('comments/',comments.filterComments,name='comments'),
     path('events/showEvent/',events.show_event,name='show_event'),
+    path('check_user/', ajax.check_user, name='check_user'),
+
 ]
