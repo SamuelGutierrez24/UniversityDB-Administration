@@ -34,10 +34,13 @@ def filterComments(request):
             
             request.session['r_comment'] = forms.cleaned_data
 
+            nombre = personas.find_one({"identificacion": idPerson},{"nombres": 1, "_id": 0})
             comments = request.session.get('r_comment',{})
+            print(nombre)
+            comments = {**comments,**nombre}
 
-
-            comments_db.insert_one({**comments})
+            comments_db.insert_one({**comments,})
             print(request.POST)
+            return render(request,'comments.html',context)
             
     
