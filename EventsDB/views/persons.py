@@ -46,8 +46,8 @@ def add_to_event(request):
             return render(request,'add_to_event.html', context)
     
     elif request.method == 'GET':
-        titulo = request.GET.get("tituloEvento")
-        print(f"eventoId recibido: {titulo}")
+        eventoId = request.GET.get("tituloEvento")
+        print(f"eventoId recibido: {eventoId}")
         personaId = request.session.get('persona_id')
         print(personaId)
         print(eventoId)

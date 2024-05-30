@@ -29,11 +29,11 @@ class UsuarioForm(forms.Form):
     nombres = forms.CharField(label='Nombre Completo', max_length=200)
     tipo_persona_choices = [
         ('DOCENTE', 'DOCENTE'),
-        ('Estudiante', 'Estudiante'),
-        ('Graduado', 'Graduado'),
-        ('Empresario', 'Empresario'),
+        ('Estudiante', 'ESTUDIANTE'),
+        ('Graduado', 'GRADUADO'),
+        ('Empresario', 'EMPRESARIO'),
         ('ADMINISTRATIVO', 'ADMINISTRATIVO'),
-        ('Directivo', 'Directivo'),
+        ('Directivo', 'DIRECTIVO'),
     ]
     tipo_empleado = forms.ChoiceField(label='Tipo de persona', choices=tipo_persona_choices)
     email = forms.EmailField(label='Email')
