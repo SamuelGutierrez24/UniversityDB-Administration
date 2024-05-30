@@ -60,7 +60,7 @@
                     <td>{{ evento.id }}</td>
                     <td>
                         <form method="GET" action="{% url 'add_to_event' %}">
-                            <input type="hidden" name="idEvento" value="{{ evento.ObjectId }}">
+                            <input type="hidden" name="tituloEvento" value="{{ evento.titulo }}">
                             <button type="submit">Agregar a Evento</button>
                         </form>
                     </td>

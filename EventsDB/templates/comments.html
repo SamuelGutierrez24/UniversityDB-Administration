@@ -6,25 +6,25 @@
     <title>Comentarios - Universidad del Sur Occidente</title>
     <link rel="stylesheet" href="/static/css/comments.css">
 </head>
-<body>
-    
-    <main class="main-container">
-        <header>
-            <h1>Universidad del Sur Occidente</h1>
-            <nav>
-                <ul>
-                    <li><a href="{% url 'menu' %}">Inicio</a></li>
-                    <li><a href="{% url 'rEvents_a' %}">Registrar Evento</a></li>
-                    <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
-                    <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
-                    <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
-                    <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
-                    <li><a href="{% url 'listE' %}">Mostrar Eventos</a></li>
-                    <li><a href="{% url 'comments' %}">Comentarios</a></li>
-                </ul>
-            </nav>
-        </header>
 
+<header>
+    <h1>Universidad del Sur Occidente</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'menu' %}">Inicio</a></li>
+            <li><a href="{% url 'rEvents_a' %}">Registrar Evento</a></li>
+            <li><a href="{% url 'rEvents_b' %}">Registrar Lugar</a></li>
+            <li><a href="{% url 'rUser' %}">Registrar Persona</a></li>
+            <li><a href="{% url 'rUser_2' %}">Registrar Ciudad</a></li>
+            <li><a href="{% url 'listP' %}">Mostrar Personas</a></li>
+            <li><a href="{% url 'listE' %}">Mostrar Eventos</a></li>
+            <li><a href="{% url 'comments' %}">Comentarios</a></li>
+
+        </ul>
+    </nav>
+</header>
+<body>
+    <main class="main-container">
         <div class="table-container">
             <table>
                 <thead>
@@ -37,7 +37,7 @@
                 <tbody>
                     {% for comment in comments %}
                     <tr>
-                        <td>{{ comment.idPerson }}</td>
+                        <td>{{ comment.nombres }}</td>
                         <td>{{ comment.idEvent }}</td>
                         <td>{{ comment.comment }}</td>
                     </tr>
@@ -54,5 +54,6 @@
             </form>
         </div>
     </main>
+</body>
 </body>
 </html>
